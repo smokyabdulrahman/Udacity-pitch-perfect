@@ -65,7 +65,9 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
         } else {
-            print("Failed")
+            let alert = UIAlertController(title: "Recording Error", message: "Awkward, the app failed to record your beautiful voice. Please, give it another try.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
